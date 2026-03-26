@@ -3,529 +3,191 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Kiruthigasudan R. — AI Business Analyst Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<title>Kiruthigasudan — AI Business Analyst</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
 <style>
-  :root {
-    --cream: #FAF8F4;
-    --warm-white: #FFFDF9;
-    --sage: #7A9E87;
-    --sage-light: #C8DDD0;
-    --sage-dark: #4A7A5E;
-    --terracotta: #C17A5B;
-    --terracotta-light: #F0D9CC;
-    --charcoal: #2C2C2A;
-    --muted: #7A7872;
-    --border: #E8E4DC;
-    --card-bg: #FFFFFF;
-    --tag-bg: #EEF5F1;
-    --tag-text: #4A7A5E;
-  }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #F7F8FA;
+  --white: #FFFFFF;
+  --electric: #0066FF;
+  --electric-light: #E8F0FF;
+  --electric-mid: #C5D8FF;
+  --charcoal: #0A0A0F;
+  --mid: #4A4A5A;
+  --muted: #8A8A9A;
+  --border: #E4E6ED;
+  --border-strong: #C8CBD8;
+  --card: #FFFFFF;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--charcoal);line-height:1.6;overflow-x:hidden;}
 
-  html { scroll-behavior: smooth; }
+/* SCROLLBAR */
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--electric);border-radius:2px;}
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--cream);
-    color: var(--charcoal);
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(247,248,250,0.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;}
+.nav-logo{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:var(--charcoal);text-decoration:none;letter-spacing:-0.02em;}
+.nav-logo span{color:var(--electric);}
+.nav-links{display:flex;gap:36px;list-style:none;}
+.nav-links a{font-size:0.82rem;font-weight:500;color:var(--muted);text-decoration:none;letter-spacing:0.04em;text-transform:uppercase;transition:color 0.2s;}
+.nav-links a:hover{color:var(--electric);}
+.nav-cta{background:var(--electric);color:white;padding:9px 22px;border-radius:6px;font-size:0.8rem;font-weight:600;text-decoration:none;letter-spacing:0.04em;text-transform:uppercase;transition:opacity 0.2s;}
+.nav-cta:hover{opacity:0.85;}
 
-  /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(250,248,244,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-    padding: 0 40px;
-    height: 60px;
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .nav-logo {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.1rem;
-    color: var(--charcoal);
-    text-decoration: none;
-  }
-  .nav-links { display: flex; gap: 32px; list-style: none; }
-  .nav-links a {
-    font-size: 0.85rem;
-    font-weight: 400;
-    color: var(--muted);
-    text-decoration: none;
-    letter-spacing: 0.03em;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--sage-dark); }
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 48px 80px;max-width:1200px;margin:0 auto;position:relative;}
+.hero-left{flex:1;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--electric-light);border:1px solid var(--electric-mid);color:var(--electric);font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:7px 14px;border-radius:100px;margin-bottom:28px;}
+.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--electric);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:0.5;transform:scale(1.4);}}
+h1.hero-name{font-family:'Syne',sans-serif;font-size:clamp(3.5rem,7vw,6.5rem);font-weight:800;line-height:0.95;letter-spacing:-0.03em;color:var(--charcoal);margin-bottom:24px;}
+h1.hero-name .accent{color:var(--electric);}
+.hero-role{font-size:1rem;font-weight:400;color:var(--mid);margin-bottom:36px;display:flex;align-items:center;gap:12px;}
+.hero-role::before{content:'';display:inline-block;width:32px;height:1px;background:var(--electric);}
+.hero-summary{font-size:1.05rem;line-height:1.78;color:var(--mid);max-width:520px;margin-bottom:44px;}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;}
+.btn-primary{background:var(--electric);color:white;padding:14px 32px;border-radius:8px;font-size:0.88rem;font-weight:600;text-decoration:none;letter-spacing:0.02em;transition:transform 0.15s,opacity 0.15s;display:inline-block;}
+.btn-primary:hover{transform:translateY(-2px);opacity:0.9;}
+.btn-ghost{border:1.5px solid var(--border-strong);color:var(--charcoal);padding:14px 32px;border-radius:8px;font-size:0.88rem;font-weight:500;text-decoration:none;transition:border-color 0.2s,transform 0.15s;display:inline-block;}
+.btn-ghost:hover{border-color:var(--electric);color:var(--electric);transform:translateY(-2px);}
+.hero-right{width:380px;flex-shrink:0;margin-left:80px;}
+.hero-stats-card{background:var(--white);border:1px solid var(--border);border-radius:20px;padding:32px;box-shadow:0 4px 40px rgba(0,102,255,0.06);}
+.hero-stats-card .card-label{font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:24px;}
+.stat-row{display:flex;align-items:center;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--border);}
+.stat-row:last-child{border-bottom:none;}
+.stat-val{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--electric);letter-spacing:-0.02em;}
+.stat-desc{font-size:0.82rem;color:var(--mid);text-align:right;max-width:160px;line-height:1.4;}
 
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: flex; align-items: center;
-    padding: 100px 40px 80px;
-    max-width: 1100px; margin: 0 auto;
-    position: relative;
-  }
-  .hero-content { max-width: 680px; }
-  .hero-eyebrow {
-    font-size: 0.78rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--sage);
-    margin-bottom: 20px;
-    display: flex; align-items: center; gap: 10px;
-  }
-  .hero-eyebrow::before {
-    content: '';
-    display: inline-block;
-    width: 28px; height: 1.5px;
-    background: var(--sage);
-  }
-  .hero-name {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(3rem, 6vw, 5rem);
-    line-height: 1.05;
-    color: var(--charcoal);
-    margin-bottom: 12px;
-  }
-  .hero-name em {
-    font-style: italic;
-    color: var(--terracotta);
-  }
-  .hero-title {
-    font-size: 1.05rem;
-    font-weight: 300;
-    color: var(--muted);
-    margin-bottom: 32px;
-    letter-spacing: 0.01em;
-  }
-  .hero-summary {
-    font-size: 1.05rem;
-    line-height: 1.75;
-    color: #4A4A46;
-    max-width: 560px;
-    margin-bottom: 40px;
-  }
-  .hero-cta {
-    display: flex; gap: 16px; flex-wrap: wrap;
-  }
-  .btn-primary {
-    background: var(--sage-dark);
-    color: white;
-    padding: 13px 28px;
-    border-radius: 100px;
-    font-size: 0.88rem;
-    font-weight: 500;
-    text-decoration: none;
-    letter-spacing: 0.02em;
-    transition: background 0.2s, transform 0.15s;
-    display: inline-block;
-  }
-  .btn-primary:hover { background: #3A6A4E; transform: translateY(-1px); }
-  .btn-outline {
-    border: 1.5px solid var(--border);
-    color: var(--charcoal);
-    padding: 13px 28px;
-    border-radius: 100px;
-    font-size: 0.88rem;
-    font-weight: 400;
-    text-decoration: none;
-    transition: border-color 0.2s, transform 0.15s;
-    display: inline-block;
-  }
-  .btn-outline:hover { border-color: var(--sage); transform: translateY(-1px); }
+/* SECTION BASE */
+section{padding:110px 48px;}
+.container{max-width:1200px;margin:0 auto;}
+.section-eyebrow{font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--electric);margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+.section-eyebrow::before{content:'';display:inline-block;width:24px;height:2px;background:var(--electric);}
+h2.section-title{font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:800;letter-spacing:-0.02em;color:var(--charcoal);margin-bottom:14px;line-height:1.05;}
+.section-sub{font-size:1rem;color:var(--muted);max-width:500px;line-height:1.7;margin-bottom:60px;}
 
-  .hero-blob {
-    position: absolute;
-    right: -80px; top: 50%;
-    transform: translateY(-50%);
-    width: 420px; height: 420px;
-    background: radial-gradient(ellipse at 40% 40%, var(--sage-light) 0%, var(--terracotta-light) 60%, transparent 80%);
-    border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
-    opacity: 0.45;
-    pointer-events: none;
-  }
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+.about-text p{font-size:1rem;line-height:1.82;color:var(--mid);margin-bottom:18px;}
+.about-traits{margin-top:36px;display:flex;flex-direction:column;gap:0;}
+.trait{display:flex;align-items:flex-start;gap:16px;padding:18px 0;border-bottom:1px solid var(--border);}
+.trait:first-child{border-top:1px solid var(--border);}
+.trait-num{font-family:'Syne',sans-serif;font-size:0.7rem;font-weight:800;color:var(--electric);letter-spacing:0.1em;min-width:28px;margin-top:2px;}
+.trait-title{font-size:0.9rem;font-weight:600;color:var(--charcoal);margin-bottom:3px;}
+.trait-desc{font-size:0.82rem;color:var(--muted);line-height:1.55;}
+.about-card{background:var(--white);border:1px solid var(--border);border-radius:20px;padding:36px;box-shadow:0 2px 24px rgba(0,0,0,0.04);}
+.about-card-title{font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:24px;}
+.exp-item{padding:18px 0;border-bottom:1px solid var(--border);}
+.exp-item:last-child{border-bottom:none;}
+.exp-company{font-size:0.9rem;font-weight:600;color:var(--charcoal);margin-bottom:3px;}
+.exp-role{font-size:0.8rem;color:var(--electric);font-weight:500;margin-bottom:3px;}
+.exp-period{font-size:0.75rem;color:var(--muted);}
+.exp-gap{font-size:0.75rem;color:var(--muted);font-style:italic;margin-top:3px;}
 
-  /* SECTION BASE */
-  section { padding: 100px 40px; }
-  .container { max-width: 1100px; margin: 0 auto; }
-  .section-label {
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--sage);
-    margin-bottom: 12px;
-    display: flex; align-items: center; gap: 10px;
-  }
-  .section-label::before {
-    content: '';
-    display: inline-block;
-    width: 20px; height: 1.5px;
-    background: var(--sage);
-  }
-  .section-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(2rem, 4vw, 3rem);
-    line-height: 1.1;
-    color: var(--charcoal);
-    margin-bottom: 16px;
-  }
-  .section-desc {
-    font-size: 1rem;
-    color: var(--muted);
-    max-width: 540px;
-    line-height: 1.7;
-    margin-bottom: 56px;
-  }
+/* SKILLS */
+.skills-bg{background:var(--charcoal);}
+.skills-bg .section-title{color:white;}
+.skills-bg .section-sub{color:rgba(255,255,255,0.45);}
+.skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;}
+.skill-block{background:var(--charcoal);padding:32px 28px;transition:background 0.2s;}
+.skill-block:hover{background:rgba(0,102,255,0.12);}
+.skill-block-icon{font-size:1.4rem;margin-bottom:16px;}
+.skill-block-title{font-size:0.82rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:white;margin-bottom:16px;}
+.skill-pills{display:flex;flex-wrap:wrap;gap:7px;}
+.pill{font-size:0.72rem;font-weight:500;padding:5px 11px;border-radius:100px;border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.65);}
+.pill.blue{border-color:rgba(0,102,255,0.4);color:#6699FF;background:rgba(0,102,255,0.08);}
 
-  /* ABOUT */
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: start;
-  }
-  .about-text p {
-    font-size: 1rem;
-    line-height: 1.8;
-    color: #4A4A46;
-    margin-bottom: 20px;
-  }
-  .about-stats {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-top: 36px;
-  }
-  .stat-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 24px;
-  }
-  .stat-number {
-    font-family: 'DM Serif Display', serif;
-    font-size: 2.4rem;
-    color: var(--sage-dark);
-    line-height: 1;
-    margin-bottom: 6px;
-  }
-  .stat-label {
-    font-size: 0.82rem;
-    color: var(--muted);
-    font-weight: 400;
-  }
+/* PROJECTS */
+.project-card{background:var(--white);border:1px solid var(--border);border-radius:24px;overflow:hidden;margin-bottom:32px;box-shadow:0 2px 32px rgba(0,0,0,0.04);transition:transform 0.2s,box-shadow 0.2s;}
+.project-card:hover{transform:translateY(-4px);box-shadow:0 16px 60px rgba(0,102,255,0.1);}
+.project-header{padding:44px 44px 0;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:start;}
+.project-status{display:inline-flex;align-items:center;gap:7px;font-size:0.7rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:6px 13px;border-radius:100px;margin-bottom:14px;}
+.live{background:#E8F7EE;color:#1A7A42;}
+.prelive{background:#FFF3E0;color:#B85E00;}
+.live .dot,.prelive .dot{width:6px;height:6px;border-radius:50%;background:currentColor;}
+.project-name{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;letter-spacing:-0.02em;color:var(--charcoal);margin-bottom:6px;line-height:1.1;}
+.project-client{font-size:0.78rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--electric);margin-bottom:18px;}
+.project-desc{font-size:0.95rem;line-height:1.75;color:var(--mid);max-width:600px;}
+.project-metrics-row{display:flex;gap:0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-top:36px;}
+.pmetric{flex:1;padding:22px 28px;border-right:1px solid var(--border);text-align:center;}
+.pmetric:last-child{border-right:none;}
+.pmetric-val{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--electric);letter-spacing:-0.02em;line-height:1;}
+.pmetric-label{font-size:0.75rem;color:var(--muted);margin-top:5px;line-height:1.35;}
+.project-body{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:none;}
+.project-role-col{padding:36px 44px;border-right:1px solid var(--border);}
+.project-diagram-col{padding:36px 44px;background:var(--bg);}
+.col-label{font-size:0.7rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:18px;}
+.role-list{list-style:none;display:flex;flex-direction:column;gap:11px;}
+.role-list li{font-size:0.88rem;color:var(--mid);display:flex;align-items:flex-start;gap:10px;line-height:1.5;}
+.role-list li::before{content:'→';color:var(--electric);flex-shrink:0;font-weight:600;}
+.project-tags{display:flex;flex-wrap:wrap;gap:8px;padding:28px 44px;border-top:1px solid var(--border);}
+.tag{font-size:0.72rem;font-weight:500;padding:5px 12px;border-radius:100px;background:var(--electric-light);color:var(--electric);border:1px solid var(--electric-mid);}
 
-  /* SKILLS */
-  .skills-section { background: var(--warm-white); }
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
-  }
-  .skill-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 28px;
-    transition: transform 0.2s, box-shadow 0.2s;
-  }
-  .skill-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.07); }
-  .skill-icon {
-    width: 44px; height: 44px;
-    border-radius: 12px;
-    background: var(--tag-bg);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.2rem;
-    margin-bottom: 16px;
-  }
-  .skill-card h3 {
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--charcoal);
-    margin-bottom: 12px;
-  }
-  .skill-tags { display: flex; flex-wrap: wrap; gap: 7px; }
-  .tag {
-    background: var(--tag-bg);
-    color: var(--tag-text);
-    font-size: 0.75rem;
-    font-weight: 500;
-    padding: 5px 11px;
-    border-radius: 100px;
-    letter-spacing: 0.01em;
-  }
-  .tag.terra {
-    background: #F5EAE3;
-    color: #8A4A2F;
-  }
-  .tag.gray {
-    background: #F0EEEA;
-    color: #5A5852;
-  }
+/* DIAGRAM SVG inside project */
+.diagram-wrap svg{width:100%;height:auto;display:block;}
 
-  /* PROJECTS */
-  .projects-grid { display: flex; flex-direction: column; gap: 32px; }
-  .project-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 24px;
-    padding: 44px;
-    display: grid;
-    grid-template-columns: 1fr 340px;
-    gap: 48px;
-    align-items: start;
-    transition: transform 0.2s, box-shadow 0.2s;
-    position: relative;
-    overflow: hidden;
-  }
-  .project-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 4px; height: 100%;
-    background: var(--sage);
-    border-radius: 4px 0 0 4px;
-  }
-  .project-card.terra::before { background: var(--terracotta); }
-  .project-card:hover { transform: translateY(-3px); box-shadow: 0 16px 48px rgba(0,0,0,0.08); }
+/* CERTS */
+.certs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;}
+.cert-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:26px;display:flex;align-items:flex-start;gap:16px;transition:border-color 0.2s,transform 0.15s;}
+.cert-card:hover{border-color:var(--electric);transform:translateY(-2px);}
+.cert-icon{width:46px;height:46px;border-radius:12px;background:var(--electric-light);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+.cert-name{font-size:0.9rem;font-weight:600;color:var(--charcoal);margin-bottom:4px;}
+.cert-issuer{font-size:0.78rem;color:var(--muted);margin-bottom:10px;}
+.cert-year{font-size:0.7rem;font-weight:600;background:var(--electric-light);color:var(--electric);padding:3px 10px;border-radius:100px;display:inline-block;border:1px solid var(--electric-mid);}
+.edu-bar{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:26px 30px;display:flex;align-items:center;gap:20px;margin-top:20px;}
+.edu-icon{width:46px;height:46px;border-radius:12px;background:var(--electric-light);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+.edu-name{font-size:0.9rem;font-weight:600;color:var(--charcoal);margin-bottom:3px;}
+.edu-detail{font-size:0.8rem;color:var(--muted);}
 
-  .project-status {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    padding: 5px 12px;
-    border-radius: 100px;
-    margin-bottom: 16px;
-  }
-  .status-live {
-    background: #E8F5EE;
-    color: #2A7A4A;
-  }
-  .status-prelive {
-    background: #FEF3E8;
-    color: #8A5A20;
-  }
-  .status-dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: currentColor;
-  }
-  .project-name {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.7rem;
-    color: var(--charcoal);
-    margin-bottom: 8px;
-    line-height: 1.2;
-  }
-  .project-client {
-    font-size: 0.8rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--sage);
-    margin-bottom: 20px;
-  }
-  .project-desc {
-    font-size: 0.95rem;
-    line-height: 1.75;
-    color: #4A4A46;
-    margin-bottom: 24px;
-  }
-  .project-role-title {
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 10px;
-  }
-  .project-role-list {
-    list-style: none;
-    display: flex; flex-direction: column; gap: 8px;
-    margin-bottom: 24px;
-  }
-  .project-role-list li {
-    font-size: 0.88rem;
-    color: #4A4A46;
-    display: flex; align-items: flex-start; gap: 10px;
-  }
-  .project-role-list li::before {
-    content: '→';
-    color: var(--sage);
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-  .project-metrics {
-    display: flex; flex-direction: column; gap: 12px;
-  }
-  .metric {
-    background: var(--cream);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 18px 20px;
-    display: flex; align-items: center; gap: 16px;
-  }
-  .metric-number {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.9rem;
-    color: var(--sage-dark);
-    line-height: 1;
-    flex-shrink: 0;
-    min-width: 60px;
-  }
-  .metric-number.terra { color: var(--terracotta); }
-  .metric-desc {
-    font-size: 0.82rem;
-    color: var(--muted);
-    line-height: 1.4;
-  }
+/* CONTACT */
+.contact-bg{background:var(--charcoal);}
+.contact-bg .section-title{color:white;}
+.contact-bg .section-sub{color:rgba(255,255,255,0.4);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.contact-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:16px;padding:26px;display:flex;align-items:center;gap:18px;text-decoration:none;transition:background 0.2s,border-color 0.2s,transform 0.15s;}
+.contact-card:hover{background:rgba(0,102,255,0.12);border-color:rgba(0,102,255,0.3);transform:translateY(-2px);}
+.contact-icon{width:44px;height:44px;border-radius:12px;background:rgba(0,102,255,0.15);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+.contact-label{font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:4px;}
+.contact-val{font-size:0.92rem;color:white;font-weight:400;}
 
-  /* CERTS */
-  .certs-section { background: var(--warm-white); }
-  .certs-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
-  }
-  .cert-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 28px;
-    display: flex; align-items: flex-start; gap: 18px;
-    transition: transform 0.2s;
-  }
-  .cert-card:hover { transform: translateY(-2px); }
-  .cert-icon {
-    width: 48px; height: 48px;
-    border-radius: 14px;
-    background: var(--tag-bg);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.3rem;
-    flex-shrink: 0;
-  }
-  .cert-name {
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--charcoal);
-    margin-bottom: 4px;
-  }
-  .cert-issuer {
-    font-size: 0.8rem;
-    color: var(--muted);
-    margin-bottom: 10px;
-  }
-  .cert-year {
-    font-size: 0.75rem;
-    font-weight: 500;
-    background: var(--tag-bg);
-    color: var(--tag-text);
-    padding: 3px 10px;
-    border-radius: 100px;
-    display: inline-block;
-  }
+/* FOOTER */
+footer{background:var(--charcoal);border-top:1px solid rgba(255,255,255,0.06);padding:28px 48px;display:flex;align-items:center;justify-content:space-between;}
+footer p{font-size:0.78rem;color:rgba(255,255,255,0.3);}
+footer .footer-dot{color:var(--electric);}
 
-  /* CONTACT */
-  .contact-section {
-    background: var(--charcoal);
-    color: white;
-  }
-  .contact-section .section-label { color: var(--sage-light); }
-  .contact-section .section-label::before { background: var(--sage-light); }
-  .contact-section .section-title { color: white; }
-  .contact-section .section-desc { color: rgba(255,255,255,0.55); }
-  .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
-  .contact-item {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 18px;
-    padding: 28px;
-    display: flex; align-items: center; gap: 18px;
-    text-decoration: none;
-    transition: background 0.2s, transform 0.15s;
-  }
-  .contact-item:hover {
-    background: rgba(255,255,255,0.1);
-    transform: translateY(-2px);
-  }
-  .contact-icon {
-    width: 44px; height: 44px;
-    border-radius: 12px;
-    background: rgba(120,158,135,0.25);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.1rem;
-    flex-shrink: 0;
-  }
-  .contact-label {
-    font-size: 0.75rem;
-    font-weight: 500;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.45);
-    margin-bottom: 4px;
-  }
-  .contact-value {
-    font-size: 0.95rem;
-    color: white;
-    font-weight: 400;
-  }
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);}}
+.hero-badge{animation:fadeUp 0.6s ease both 0.1s;}
+h1.hero-name{animation:fadeUp 0.6s ease both 0.2s;}
+.hero-role{animation:fadeUp 0.6s ease both 0.3s;}
+.hero-summary{animation:fadeUp 0.6s ease both 0.4s;}
+.hero-actions{animation:fadeUp 0.6s ease both 0.5s;}
+.hero-right{animation:fadeUp 0.6s ease both 0.6s;}
 
-  /* FOOTER */
-  footer {
-    background: var(--charcoal);
-    border-top: 1px solid rgba(255,255,255,0.08);
-    padding: 24px 40px;
-    text-align: center;
-  }
-  footer p {
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.35);
-  }
+/* GRID LINE BG */
+.hero::after{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,102,255,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,102,255,0.04) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:-1;}
 
-  /* ANIMATIONS */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  .hero-content > * {
-    animation: fadeUp 0.7s ease both;
-  }
-  .hero-eyebrow { animation-delay: 0.1s; }
-  .hero-name    { animation-delay: 0.2s; }
-  .hero-title   { animation-delay: 0.3s; }
-  .hero-summary { animation-delay: 0.4s; }
-  .hero-cta     { animation-delay: 0.5s; }
-
-  /* RESPONSIVE */
-  @media (max-width: 800px) {
-    nav { padding: 0 20px; }
-    .nav-links { gap: 20px; }
-    section { padding: 70px 24px; }
-    .hero { padding: 100px 24px 60px; }
-    .hero-blob { display: none; }
-    .about-grid { grid-template-columns: 1fr; }
-    .project-card { grid-template-columns: 1fr; }
-    .contact-grid { grid-template-columns: 1fr; }
-  }
+@media(max-width:900px){
+  nav{padding:0 20px;}
+  .nav-links,.nav-cta{display:none;}
+  section{padding:70px 24px;}
+  .hero{padding:100px 24px 60px;flex-direction:column;}
+  .hero-right{width:100%;margin-left:0;margin-top:40px;}
+  .about-grid,.project-body,.contact-grid{grid-template-columns:1fr;}
+  .project-header{grid-template-columns:1fr;}
+  .skills-grid{grid-template-columns:1fr 1fr;}
+  .project-role-col{border-right:none;border-bottom:1px solid var(--border);}
+}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <a href="#hero" class="nav-logo">KR.</a>
+  <a href="#hero" class="nav-logo">Kiruthiga<span>sudan</span></a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
@@ -533,338 +195,415 @@
     <li><a href="#certifications">Certifications</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <a href="#contact" class="nav-cta">Hire me</a>
 </nav>
 
 <!-- HERO -->
-<section id="hero" style="padding-top:0; padding-bottom:0;">
-  <div class="hero">
-    <div class="hero-content">
-      <div class="hero-eyebrow">AI Business Analyst &amp; Product Designer</div>
-      <h1 class="hero-name">Kiruthiga<br/><em>sudan R.</em></h1>
-      <p class="hero-title">Chennai, India &nbsp;·&nbsp; Open to AI BA &amp; AI Consultant Roles</p>
-      <p class="hero-summary">
-        I bridge the gap between business problems and technical execution — conceptualising AI-powered tools, defining the logic that makes them work, and managing delivery from zero to live product. My work lives at the intersection of supply chain, automation, and intelligent product design.
-      </p>
-      <div class="hero-cta">
-        <a href="#projects" class="btn-primary">View my work</a>
-        <a href="#contact" class="btn-outline">Get in touch</a>
+<section id="hero" style="padding-top:0;padding-bottom:0;">
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-badge">Available for AI BA &amp; Consultant Roles</div>
+    <h1 class="hero-name">Kiruthiga<br/><span class="accent">sudan R.</span></h1>
+    <p class="hero-role">AI Business Analyst &nbsp;·&nbsp; Chennai, India</p>
+    <p class="hero-summary">I bridge the gap between business problems and technical execution — conceptualising AI-powered tools, defining the logic, and managing delivery from zero to live product. Three products built. All live.</p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn-primary">See my work</a>
+      <a href="#contact" class="btn-ghost">Get in touch</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stats-card">
+      <div class="card-label">Impact at a glance</div>
+      <div class="stat-row">
+        <div class="stat-val">70%</div>
+        <div class="stat-desc">Reduction in manual effort across projects</div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-val">98%</div>
+        <div class="stat-desc">Chatbot query resolution accuracy</div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-val">3</div>
+        <div class="stat-desc">Products built end-to-end and delivered</div>
+      </div>
+      <div class="stat-row">
+        <div class="stat-val">50%</div>
+        <div class="stat-desc">Approval time reduction — SaaS platform</div>
       </div>
     </div>
-    <div class="hero-blob"></div>
   </div>
+</div>
 </section>
 
 <!-- ABOUT -->
 <section id="about">
-  <div class="container">
-    <div class="section-label">About me</div>
-    <h2 class="section-title">The person behind<br/>the product specs</h2>
-    <div class="about-grid">
-      <div class="about-text">
-        <p>I'm a Techno-Functional Business Analyst with 2+ years of experience designing and delivering AI-powered supply chain solutions. My background in Mechatronics Engineering gives me an unusually technical lens for a BA role — I understand systems, not just business processes.</p>
-        <p>My work spans the full product lifecycle: understanding the business problem, designing the logic, writing the specs, managing the developers, and validating the output. I've taken three products from concept to live deployment — without writing a single line of code.</p>
-        <p>I specialise in conversational AI design, agentic workflow architecture, and AI governance — ensuring that the systems I help build are accurate, explainable, and defensible.</p>
-        <div class="about-stats">
-          <div class="stat-card">
-            <div class="stat-number">2+</div>
-            <div class="stat-label">Years in AI &amp; automation</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">3</div>
-            <div class="stat-label">Products built end-to-end</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">70%</div>
-            <div class="stat-label">Manual effort reduced</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">98%</div>
-            <div class="stat-label">Chatbot query resolution</div>
-          </div>
-        </div>
+<div class="container">
+  <div class="section-eyebrow">About me</div>
+  <h2 class="section-title">The person behind<br/>the product specs</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I'm a Techno-Functional Business Analyst with 2+ years of experience designing and delivering AI-powered supply chain solutions. My background in Mechatronics Engineering gives me an unusually technical lens for a BA role — I understand systems, not just business processes.</p>
+      <p>My work spans the full product lifecycle: understanding the business problem, designing the logic, writing the specs, managing developers, and validating the output. I've taken three products from concept to live deployment — without writing a single line of code.</p>
+      <p>I specialise in conversational AI design, agentic workflow architecture, and AI governance — ensuring the systems I help build are accurate, explainable, and defensible.</p>
+      <div class="about-traits">
+        <div class="trait"><div class="trait-num">01</div><div><div class="trait-title">AI Product Thinking</div><div class="trait-desc">I design how AI behaves — intent logic, fallbacks, escalations, governance protocols</div></div></div>
+        <div class="trait"><div class="trait-num">02</div><div><div class="trait-title">End-to-End Ownership</div><div class="trait-desc">Concept → spec → dev management → UAT → go-live. I own the whole journey</div></div></div>
+        <div class="trait"><div class="trait-num">03</div><div><div class="trait-title">Supply Chain Domain Expert</div><div class="trait-desc">Deep expertise in RFQ, procurement automation, and supplier intelligence</div></div></div>
       </div>
-      <div>
-        <div style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 24px; padding: 32px;">
-          <div style="font-size:0.75rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); margin-bottom:20px;">What I bring to a role</div>
-          <div style="display:flex; flex-direction:column; gap:14px;">
-            <div style="display:flex; align-items:flex-start; gap:14px;">
-              <div style="width:36px;height:36px;border-radius:10px;background:var(--tag-bg);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;">🧠</div>
-              <div>
-                <div style="font-size:0.88rem;font-weight:500;color:var(--charcoal);margin-bottom:3px;">AI Product Thinking</div>
-                <div style="font-size:0.8rem;color:var(--muted);line-height:1.5;">I design how AI behaves — intent logic, fallbacks, escalations, governance</div>
-              </div>
-            </div>
-            <div style="display:flex; align-items:flex-start; gap:14px;">
-              <div style="width:36px;height:36px;border-radius:10px;background:var(--tag-bg);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;">📋</div>
-              <div>
-                <div style="font-size:0.88rem;font-weight:500;color:var(--charcoal);margin-bottom:3px;">Requirement Engineering</div>
-                <div style="font-size:0.8rem;color:var(--muted);line-height:1.5;">BRDs, FRDs, user stories, and UAT — documented with precision</div>
-              </div>
-            </div>
-            <div style="display:flex; align-items:flex-start; gap:14px;">
-              <div style="width:36px;height:36px;border-radius:10px;background:var(--tag-bg);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;">⚙️</div>
-              <div>
-                <div style="font-size:0.88rem;font-weight:500;color:var(--charcoal);margin-bottom:3px;">End-to-End Delivery</div>
-                <div style="font-size:0.8rem;color:var(--muted);line-height:1.5;">From concept through dev management to go-live validation</div>
-              </div>
-            </div>
-            <div style="display:flex; align-items:flex-start; gap:14px;">
-              <div style="width:36px;height:36px;border-radius:10px;background:var(--tag-bg);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;">🔗</div>
-              <div>
-                <div style="font-size:0.88rem;font-weight:500;color:var(--charcoal);margin-bottom:3px;">Supply Chain Domain</div>
-                <div style="font-size:0.8rem;color:var(--muted);line-height:1.5;">Deep expertise in RFQ, procurement automation, and supplier management</div>
-              </div>
-            </div>
-          </div>
+    </div>
+    <div>
+      <div class="about-card">
+        <div class="about-card-title">Experience timeline</div>
+        <div class="exp-item">
+          <div class="exp-company">InESS Global Solutions</div>
+          <div class="exp-role">Business Analyst — AI &amp; Automation</div>
+          <div class="exp-period">2024 – Present · Chennai</div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-company">Career break</div>
+          <div class="exp-role">Family caregiving responsibility</div>
+          <div class="exp-period">2019 – 2023</div>
+          <div class="exp-gap">Completed AI &amp; automation certifications during this period</div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-company">Amazon</div>
+          <div class="exp-role">Junior Associate — QA</div>
+          <div class="exp-period">2019 · Chennai</div>
         </div>
       </div>
     </div>
   </div>
+</div>
 </section>
 
 <!-- SKILLS -->
-<section id="skills" class="skills-section">
-  <div class="container">
-    <div class="section-label">Skills &amp; tools</div>
-    <h2 class="section-title">What I work with</h2>
-    <p class="section-desc">A blend of AI product design, business analysis, and supply chain domain knowledge — backed by hands-on tool experience.</p>
-    <div class="skills-grid">
-      <div class="skill-card">
-        <div class="skill-icon">🤖</div>
-        <h3>AI Product Design</h3>
-        <div class="skill-tags">
-          <span class="tag">Prompt Engineering</span>
-          <span class="tag">Conversational AI</span>
-          <span class="tag">Intent &amp; Entity Mapping</span>
-          <span class="tag">Agentic Workflows</span>
-          <span class="tag">Fallback Logic</span>
-          <span class="tag">AI Governance</span>
-          <span class="tag">Human-in-the-Loop</span>
-        </div>
+<section id="skills" class="skills-bg">
+<div class="container">
+  <div class="section-eyebrow" style="color:#6699FF;">Skills &amp; tools</div>
+  <h2 class="section-title">What I work with</h2>
+  <p class="section-sub">A precise blend of AI product design, BA methodology, and supply chain domain knowledge.</p>
+  <div class="skills-grid">
+    <div class="skill-block">
+      <div class="skill-block-icon">🤖</div>
+      <div class="skill-block-title">AI Design</div>
+      <div class="skill-pills">
+        <span class="pill blue">Prompt Engineering</span>
+        <span class="pill blue">Conversational AI</span>
+        <span class="pill blue">Intent Mapping</span>
+        <span class="pill blue">Agentic Workflows</span>
+        <span class="pill blue">Fallback Logic</span>
+        <span class="pill blue">AI Governance</span>
+        <span class="pill blue">Human-in-Loop</span>
       </div>
-      <div class="skill-card">
-        <div class="skill-icon">📋</div>
-        <h3>Business Analysis</h3>
-        <div class="skill-tags">
-          <span class="tag">BRD / FRD</span>
-          <span class="tag">User Stories</span>
-          <span class="tag">Gap Analysis</span>
-          <span class="tag">UAT Coordination</span>
-          <span class="tag">Persona Mapping</span>
-          <span class="tag">Stakeholder Mgmt</span>
-        </div>
+    </div>
+    <div class="skill-block">
+      <div class="skill-block-icon">📋</div>
+      <div class="skill-block-title">Business Analysis</div>
+      <div class="skill-pills">
+        <span class="pill">BRD / FRD</span>
+        <span class="pill">User Stories</span>
+        <span class="pill">Gap Analysis</span>
+        <span class="pill">UAT</span>
+        <span class="pill">Persona Mapping</span>
+        <span class="pill">Stakeholder Mgmt</span>
+        <span class="pill">Agile / Scrum</span>
       </div>
-      <div class="skill-card">
-        <div class="skill-icon">🔗</div>
-        <h3>Supply Chain Domain</h3>
-        <div class="skill-tags">
-          <span class="tag">RFQ Management</span>
-          <span class="tag">Procurement Automation</span>
-          <span class="tag">Demand Planning</span>
-          <span class="tag">MPN/CPN Reconciliation</span>
-          <span class="tag">Supplier Risk</span>
-        </div>
+    </div>
+    <div class="skill-block">
+      <div class="skill-block-icon">🔗</div>
+      <div class="skill-block-title">Supply Chain</div>
+      <div class="skill-pills">
+        <span class="pill">RFQ Management</span>
+        <span class="pill">Procurement Auto.</span>
+        <span class="pill">Demand Planning</span>
+        <span class="pill">MPN/CPN Recon.</span>
+        <span class="pill">Supplier Risk</span>
       </div>
-      <div class="skill-card">
-        <div class="skill-icon">🛠️</div>
-        <h3>Technical Tools</h3>
-        <div class="skill-tags">
-          <span class="tag terra">SQL</span>
-          <span class="tag terra">Python</span>
-          <span class="tag terra">n8n Automation</span>
-          <span class="tag terra">API Integration</span>
-          <span class="tag gray">JIRA</span>
-          <span class="tag gray">Tableau</span>
-          <span class="tag gray">Lucidchart</span>
-          <span class="tag gray">Eraser.io</span>
-        </div>
+    </div>
+    <div class="skill-block">
+      <div class="skill-block-icon">🛠️</div>
+      <div class="skill-block-title">Tools</div>
+      <div class="skill-pills">
+        <span class="pill">SQL</span>
+        <span class="pill">Python</span>
+        <span class="pill">n8n Automation</span>
+        <span class="pill">API Integration</span>
+        <span class="pill">JIRA</span>
+        <span class="pill">Tableau</span>
+        <span class="pill">Lucidchart</span>
+        <span class="pill">Eraser.io</span>
       </div>
     </div>
   </div>
+</div>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects">
-  <div class="container">
-    <div class="section-label">Case studies</div>
-    <h2 class="section-title">Products I've designed<br/>and delivered</h2>
-    <p class="section-desc">Each project was conceptualised, designed, and delivered end-to-end — from the initial logic to go-live validation.</p>
-    <div class="projects-grid">
+<div class="container">
+  <div class="section-eyebrow">Case studies</div>
+  <h2 class="section-title">Products I've designed<br/>and delivered</h2>
+  <p class="section-sub">Each product was conceptualised, designed, and delivered end-to-end — from initial logic to go-live validation.</p>
 
-      <!-- PROJECT 1: SaaS RFQ Platform -->
-      <div class="project-card">
-        <div>
-          <span class="project-status status-prelive"><span class="status-dot"></span>Pre-launch</span>
-          <h3 class="project-name">SaaS RFQ Management Platform</h3>
-          <div class="project-client">InESS Solutions — Internal Product</div>
-          <p class="project-desc">A fully functional multi-tenant SaaS platform for end-to-end RFQ management — including product website, subscription system, supplier portal, buyer dashboard, and AI-driven KPI reporting. Designed from scratch and built with company developers from my functional specifications.</p>
-          <div class="project-role-title">My contribution</div>
-          <ul class="project-role-list">
-            <li>Conceptualised the entire product and defined the vision</li>
-            <li>Designed onboarding module — OTP flow, tenant ID creation, multi-tool login</li>
-            <li>Defined supplier management logic — ability-to-quote rules, bulk upload validation, audit trails</li>
-            <li>Specified RFQ workflow — from part selection through email dispatch to approval</li>
-            <li>Designed role-based access for Admin, Supplier, and Buyer personas</li>
-            <li>Managed developers through full build cycle and conducted UAT</li>
-          </ul>
-          <div class="skill-tags">
-            <span class="tag">BRD / FRD</span>
-            <span class="tag">Multi-tenant SaaS</span>
-            <span class="tag">Role-based Access</span>
-            <span class="tag">AI Dashboards</span>
-            <span class="tag">Agile / JIRA</span>
-          </div>
-        </div>
-        <div class="project-metrics">
-          <div class="metric">
-            <div class="metric-number">50%</div>
-            <div class="metric-desc">Reduction in approval processing time in internal testing</div>
-          </div>
-          <div class="metric">
-            <div class="metric-number">3</div>
-            <div class="metric-desc">User personas designed with role-specific workflows</div>
-          </div>
-          <div class="metric">
-            <div class="metric-number">0</div>
-            <div class="metric-desc">Defects in UAT — clean production deployment</div>
-          </div>
+  <!-- PROJECT 1: SaaS RFQ Platform -->
+  <div class="project-card">
+    <div class="project-header">
+      <div>
+        <span class="project-status prelive"><span class="dot"></span>Pre-launch</span>
+        <h3 class="project-name">SaaS RFQ Management Platform</h3>
+        <div class="project-client">InESS Solutions — Internal Product</div>
+        <p class="project-desc">A fully functional multi-tenant SaaS platform for end-to-end RFQ management — including product website, subscription system, supplier portal, buyer dashboard, and AI-driven KPI reporting. Designed from scratch and built with company developers from my functional specifications.</p>
+      </div>
+    </div>
+    <div class="project-metrics-row">
+      <div class="pmetric"><div class="pmetric-val">50%</div><div class="pmetric-label">Approval time reduction in testing</div></div>
+      <div class="pmetric"><div class="pmetric-val">3</div><div class="pmetric-label">User personas with role-based workflows</div></div>
+      <div class="pmetric"><div class="pmetric-val">0</div><div class="pmetric-label">Defects in UAT deployment</div></div>
+      <div class="pmetric"><div class="pmetric-val">5</div><div class="pmetric-label">Core modules designed end-to-end</div></div>
+    </div>
+    <div class="project-body">
+      <div class="project-role-col">
+        <div class="col-label">My contribution</div>
+        <ul class="role-list">
+          <li>Conceptualised the entire product and owned the vision</li>
+          <li>Designed onboarding module — OTP flow, tenant ID creation, multi-tool login</li>
+          <li>Defined supplier management logic — ability-to-quote rules, bulk upload, audit trails</li>
+          <li>Specified full RFQ workflow from part selection to automated approval</li>
+          <li>Designed role-based access for Admin, Supplier, and Buyer personas</li>
+          <li>Managed developers through full build and conducted UAT</li>
+        </ul>
+      </div>
+      <div class="project-diagram-col">
+        <div class="col-label">Process flow — User onboarding &amp; RFQ cycle</div>
+        <div class="diagram-wrap">
+          <svg viewBox="0 0 520 580" xmlns="http://www.w3.org/2000/svg">
+            <defs><marker id="a1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#0066FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+            <!-- Onboarding -->
+            <rect x="140" y="10" width="240" height="38" rx="8" fill="#E8F0FF" stroke="#C5D8FF" stroke-width="1"/>
+            <text x="260" y="33" text-anchor="middle" font-family="Space Grotesk" font-size="12" font-weight="600" fill="#0A0A0F">User visits sign-up page</text>
+            <line x1="260" y1="48" x2="260" y2="68" stroke="#0066FF" stroke-width="1.5" marker-end="url(#a1)"/>
+            <rect x="110" y="68" width="300" height="44" rx="8" fill="white" stroke="#E4E6ED" stroke-width="1"/>
+            <text x="260" y="85" text-anchor="middle" font-family="Space Grotesk" font-size="11" font-weight="600" fill="#0A0A0F">Enter details</text>
+            <text x="260" y="101" text-anchor="middle" font-family="Space Grotesk" font-size="10" fill="#8A8A9A">Name · work email · company · password</text>
+            <line x1="260" y1="112" x2="260" y2="132" stroke="#0066FF" stroke-width="1.5" marker-end="url(#a1)"/>
+            <rect x="120" y="132" width="280" height="44" rx="8" fill="white" stroke="#E4E6ED" stroke-width="1"/>
+            <text x="260" y="149" text-anchor="middle" font-family="Space Grotesk" font-size="11" font-weight="600" fill="#0A0A0F">System validates</text>
+            <text x="260" y="165" text-anchor="middle" font-family="Space Grotesk" font-size="10" fill="#8A8A9A">Blocks Gmail/Yahoo · CAPTCHA · domain check</text>
+            <line x1="260" y1="176" x2="260" y2="196" stroke="#0066FF" stroke-width="1.5" marker-end="url(#a1)"/>
+            <rect x="120" y="196" width="280" height="44" rx="8" fill="white" stroke="#E4E6ED" stroke-width="1"/>
+            <text x="260" y="213" text-anchor="middle" font-family="Space Grotesk" font-size="11" font-weight="600" fill="#0A0A0F">OTP sent to work email</text>
+            <text x="260" y="229" text-anchor="middle" font-family="Space Grotesk" font-size="10" fill="#8A8A9A">Expires 10 min · max 3 tries · hashed</text>
+            <line x1="260" y1="240" x2="260" y2="260" stroke="#0066FF" stroke-width="1.5" marker-end="url(#a1)"/>
+            <rect x="120" y="260" width="280" height="44" rx="8" fill="#E8F0FF" stroke="#C5D8FF" stroke-width="1"/>
+            <text x="260" y="277" text-anchor="middle" font-family="Space Grotesk" font-size="11" font-weight="600" fill="#0066FF">Tenant ID + User ID created</text>
+            <text x="260" y="293" text-anchor="middle" font-family="Space Grotesk" font-size="10" fill="#4A6AAA">Welcome email with login link sent</text>
+            <!-- Role split -->
+            <line x1="260" y1="304" x2="260" y2="324" stroke="#0066FF" stroke-width="1.5" marker-end="url(#a1)"/>
+            <rect x="150" y="324" width="220" height="34" rx="8" fill="#0066FF"/>
+            <text x="260" y="346" text-anchor="middle" font-family="Space Grotesk" font-size="11" font-weight="600" fill="white">User logs in → role dashboard</text>
+            <line x1="260" y1="358" x2="100" y2="390" stroke="#0066FF" stroke-width="1.5" marker-end="url(#a1)"/>
+            <line x1="260" y1="358" x2="260" y2="390" stroke="#0066FF" stroke-width="1.5" marker-end="url(#a1)"/>
+            <line x1="260" y1="358" x2="420" y2="390" stroke="#0066FF" stroke-width="1.5" marker-end="url(#a1)"/>
+            <rect x="20" y="390" width="160" height="34" rx="8" fill="white" stroke="#E4E6ED" stroke-width="1"/>
+            <text x="100" y="412" text-anchor="middle" font-family="Space Grotesk" font-size="10" font-weight="600" fill="#0A0A0F">Admin dashboard</text>
+            <rect x="180" y="390" width="160" height="34" rx="8" fill="white" stroke="#E4E6ED" stroke-width="1"/>
+            <text x="260" y="412" text-anchor="middle" font-family="Space Grotesk" font-size="10" font-weight="600" fill="#0A0A0F">Buyer dashboard</text>
+            <rect x="340" y="390" width="160" height="34" rx="8" fill="white" stroke="#E4E6ED" stroke-width="1"/>
+            <text x="420" y="412" text-anchor="middle" font-family="Space Grotesk" font-size="10" font-weight="600" fill="#0A0A0F">Supplier portal</text>
+            <!-- RFQ flow -->
+            <line x1="260" y1="424" x2="260" y2="444" stroke="#0066FF" stroke-width="1.5" marker-end="url(#a1)"/>
+            <rect x="120" y="444" width="280" height="34" rx="8" fill="white" stroke="#E4E6ED" stroke-width="1"/>
+            <text x="260" y="466" text-anchor="middle" font-family="Space Grotesk" font-size="10" font-weight="600" fill="#0A0A0F">Buyer selects parts → Send RFQ</text>
+            <line x1="260" y1="478" x2="260" y2="498" stroke="#0066FF" stroke-width="1.5" marker-end="url(#a1)"/>
+            <rect x="120" y="498" width="280" height="34" rx="8" fill="white" stroke="#E4E6ED" stroke-width="1"/>
+            <text x="260" y="520" text-anchor="middle" font-family="Space Grotesk" font-size="10" font-weight="600" fill="#0A0A0F">Supplier quotes → Buyer reviews</text>
+            <line x1="260" y1="532" x2="160" y2="552" stroke="#0066FF" stroke-width="1.5" marker-end="url(#a1)"/>
+            <line x1="260" y1="532" x2="360" y2="552" stroke="#0066FF" stroke-width="1.5" marker-end="url(#a1)"/>
+            <rect x="60" y="552" width="120" height="28" rx="6" fill="#E8F7EE" stroke="#A8DDB8" stroke-width="1"/>
+            <text x="120" y="571" text-anchor="middle" font-family="Space Grotesk" font-size="10" font-weight="600" fill="#1A7A42">Approved ✓</text>
+            <rect x="300" y="552" width="120" height="28" rx="6" fill="#FFF0F0" stroke="#FFBBBB" stroke-width="1"/>
+            <text x="360" y="571" text-anchor="middle" font-family="Space Grotesk" font-size="10" font-weight="600" fill="#CC2222">Rejected / No bid</text>
+          </svg>
         </div>
       </div>
-
-      <!-- PROJECT 2: Spares Automation Tool -->
-      <div class="project-card terra">
-        <div>
-          <span class="project-status status-live"><span class="status-dot"></span>Live &amp; in active use</span>
-          <h3 class="project-name">Spares Automation Tool</h3>
-          <div class="project-client">Arista Networks</div>
-          <p class="project-desc">A Python-based RFQ automation system spanning three independent procurement modules. Conceptualised to eliminate the manual errors and delays in high-volume contract cost adjustments. Currently live and used daily by the procurement team.</p>
-          <div class="project-role-title">My contribution</div>
-          <ul class="project-role-list">
-            <li>Conceptualised the solution and owned full product design</li>
-            <li>Defined functional requirements for all three independent modules</li>
-            <li>Specified rule-based validation logic for contract cost accuracy</li>
-            <li>Defined error handling and exception workflows</li>
-            <li>Managed developer execution and conducted full UAT</li>
-          </ul>
-          <div class="skill-tags">
-            <span class="tag">RFQ Automation</span>
-            <span class="tag">Python-based</span>
-            <span class="tag">Rule-based Validation</span>
-            <span class="tag">UAT</span>
-            <span class="tag">Procurement</span>
-          </div>
-        </div>
-        <div class="project-metrics">
-          <div class="metric">
-            <div class="metric-number terra">3</div>
-            <div class="metric-desc">Independent modules designed and delivered</div>
-          </div>
-          <div class="metric">
-            <div class="metric-number terra">0</div>
-            <div class="metric-desc">Manual errors in contract cost adjustments post-launch</div>
-          </div>
-          <div class="metric">
-            <div class="metric-number terra">Live</div>
-            <div class="metric-desc">Active daily use by Arista procurement team</div>
-          </div>
-        </div>
-      </div>
-
+    </div>
+    <div class="project-tags">
+      <span class="tag">Multi-tenant SaaS</span>
+      <span class="tag">BRD / FRD</span>
+      <span class="tag">Role-based Access</span>
+      <span class="tag">AI Dashboards</span>
+      <span class="tag">OTP Authentication</span>
+      <span class="tag">Agile / JIRA</span>
     </div>
   </div>
+
+  <!-- PROJECT 2: Spares Automation Tool -->
+  <div class="project-card">
+    <div class="project-header">
+      <div>
+        <span class="project-status live"><span class="dot"></span>Live &amp; in active use</span>
+        <h3 class="project-name">Spares Automation Tool</h3>
+        <div class="project-client">Arista Networks</div>
+        <p class="project-desc">A Python-based RFQ automation system spanning three independent procurement modules. Conceptualised to eliminate manual errors and delays in high-volume contract cost adjustments. Currently live and used daily by the procurement team.</p>
+      </div>
+    </div>
+    <div class="project-metrics-row">
+      <div class="pmetric"><div class="pmetric-val">3</div><div class="pmetric-label">Independent modules designed</div></div>
+      <div class="pmetric"><div class="pmetric-val">0</div><div class="pmetric-label">Manual errors post-launch</div></div>
+      <div class="pmetric"><div class="pmetric-val">Live</div><div class="pmetric-label">Active daily use</div></div>
+      <div class="pmetric"><div class="pmetric-val">40%</div><div class="pmetric-label">Turnaround time reduced</div></div>
+    </div>
+    <div class="project-body">
+      <div class="project-role-col">
+        <div class="col-label">My contribution</div>
+        <ul class="role-list">
+          <li>Conceptualised the solution and owned full product design</li>
+          <li>Defined functional requirements for all three independent modules</li>
+          <li>Specified rule-based validation logic for contract cost accuracy</li>
+          <li>Defined error handling and exception workflows</li>
+          <li>Managed developer execution through full build cycle</li>
+          <li>Conducted full UAT before go-live</li>
+        </ul>
+      </div>
+      <div class="project-diagram-col">
+        <div class="col-label">Process flow — Supplier management &amp; RFQ dispatch</div>
+        <div class="diagram-wrap">
+          <svg viewBox="0 0 520 500" xmlns="http://www.w3.org/2000/svg">
+            <defs><marker id="a2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#0066FF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>
+            <rect x="140" y="10" width="240" height="38" rx="8" fill="#E8F0FF" stroke="#C5D8FF" stroke-width="1"/>
+            <text x="260" y="33" text-anchor="middle" font-family="Space Grotesk" font-size="12" font-weight="600" fill="#0A0A0F">Admin opens supplier module</text>
+            <line x1="260" y1="48" x2="140" y2="78" stroke="#0066FF" stroke-width="1.5" marker-end="url(#a2)"/>
+            <line x1="260" y1="48" x2="380" y2="78" stroke="#0066FF" stroke-width="1.5" marker-end="url(#a2)"/>
+            <rect x="30" y="78" width="200" height="44" rx="8" fill="white" stroke="#E4E6ED" stroke-width="1"/>
+            <text x="130" y="95" text-anchor="middle" font-family="Space Grotesk" font-size="11" font-weight="600" fill="#0A0A0F">Add single supplier</text>
+            <text x="130" y="111" text-anchor="middle" font-family="Space Grotesk" font-size="10" fill="#8A8A9A">Manual entry + validation</text>
+            <rect x="290" y="78" width="200" height="44" rx="8" fill="white" stroke="#E4E6ED" stroke-width="1"/>
+            <text x="390" y="95" text-anchor="middle" font-family="Space Grotesk" font-size="11" font-weight="600" fill="#0A0A0F">Mass upload</text>
+            <text x="390" y="111" text-anchor="middle" font-family="Space Grotesk" font-size="10" fill="#8A8A9A">Excel template · bulk import</text>
+            <line x1="130" y1="122" x2="200" y2="162" stroke="#0066FF" stroke-width="1.5" marker-end="url(#a2)"/>
+            <line x1="390" y1="122" x2="320" y2="162" stroke="#0066FF" stroke-width="1.5" marker-end="url(#a2)"/>
+            <rect x="110" y="162" width="300" height="44" rx="8" fill="white" stroke="#E4E6ED" stroke-width="1"/>
+            <text x="260" y="179" text-anchor="middle" font-family="Space Grotesk" font-size="11" font-weight="600" fill="#0A0A0F">Validation checks run</text>
+            <text x="260" y="195" text-anchor="middle" font-family="Space Grotesk" font-size="10" fill="#8A8A9A">Duplicate · email format · required fields</text>
+            <line x1="260" y1="206" x2="260" y2="226" stroke="#0066FF" stroke-width="1.5" marker-end="url(#a2)"/>
+            <rect x="110" y="226" width="300" height="44" rx="8" fill="#E8F0FF" stroke="#C5D8FF" stroke-width="1"/>
+            <text x="260" y="243" text-anchor="middle" font-family="Space Grotesk" font-size="11" font-weight="600" fill="#0066FF">Supplier added to list</text>
+            <text x="260" y="259" text-anchor="middle" font-family="Space Grotesk" font-size="10" fill="#4A6AAA">Audit log created · Created By/On tracked</text>
+            <line x1="260" y1="270" x2="260" y2="290" stroke="#0066FF" stroke-width="1.5" marker-end="url(#a2)"/>
+            <rect x="110" y="290" width="300" height="44" rx="8" fill="white" stroke="#E4E6ED" stroke-width="1"/>
+            <text x="260" y="307" text-anchor="middle" font-family="Space Grotesk" font-size="11" font-weight="600" fill="#0A0A0F">Set "Ability to Quote" status</text>
+            <text x="260" y="323" text-anchor="middle" font-family="Space Grotesk" font-size="10" fill="#8A8A9A">Can Quote → included in RFQ · Can't Quote → excluded</text>
+            <line x1="260" y1="334" x2="260" y2="354" stroke="#0066FF" stroke-width="1.5" marker-end="url(#a2)"/>
+            <rect x="110" y="354" width="300" height="44" rx="8" fill="#0066FF"/>
+            <text x="260" y="371" text-anchor="middle" font-family="Space Grotesk" font-size="11" font-weight="600" fill="white">RFQ dispatched to eligible suppliers</text>
+            <text x="260" y="387" text-anchor="middle" font-family="Space Grotesk" font-size="10" fill="rgba(255,255,255,0.7)">Auto email · CC commodity manager</text>
+            <line x1="260" y1="398" x2="140" y2="428" stroke="#0066FF" stroke-width="1.5" marker-end="url(#a2)"/>
+            <line x1="260" y1="398" x2="260" y2="428" stroke="#0066FF" stroke-width="1.5" marker-end="url(#a2)"/>
+            <line x1="260" y1="398" x2="380" y2="428" stroke="#0066FF" stroke-width="1.5" marker-end="url(#a2)"/>
+            <rect x="40" y="428" width="120" height="28" rx="6" fill="white" stroke="#E4E6ED" stroke-width="1"/>
+            <text x="100" y="447" text-anchor="middle" font-family="Space Grotesk" font-size="10" font-weight="600" fill="#0A0A0F">Edit supplier</text>
+            <rect x="195" y="428" width="130" height="28" rx="6" fill="white" stroke="#E4E6ED" stroke-width="1"/>
+            <text x="260" y="447" text-anchor="middle" font-family="Space Grotesk" font-size="10" font-weight="600" fill="#0A0A0F">Export CSV/Excel</text>
+            <rect x="350" y="428" width="130" height="28" rx="6" fill="#FFF0F0" stroke="#FFBBBB" stroke-width="1"/>
+            <text x="415" y="447" text-anchor="middle" font-family="Space Grotesk" font-size="10" font-weight="600" fill="#CC2222">Soft delete</text>
+            <text x="260" y="490" text-anchor="middle" font-family="Space Grotesk" font-size="10" fill="#8A8A9A" font-style="italic">Designed by Kiruthigasudan R. · InESS Solutions</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="project-tags">
+      <span class="tag">RFQ Automation</span>
+      <span class="tag">Python-based</span>
+      <span class="tag">Rule-based Validation</span>
+      <span class="tag">Supplier Management</span>
+      <span class="tag">UAT</span>
+      <span class="tag">Procurement</span>
+    </div>
+  </div>
+
+</div>
 </section>
 
 <!-- CERTIFICATIONS -->
-<section id="certifications" class="certs-section">
-  <div class="container">
-    <div class="section-label">Certifications</div>
-    <h2 class="section-title">Credentials</h2>
-    <p class="section-desc">Completed during a period of focused self-development in AI and automation.</p>
-    <div class="certs-grid">
-      <div class="cert-card">
-        <div class="cert-icon">🎓</div>
-        <div>
-          <div class="cert-name">Prompt Engineering</div>
-          <div class="cert-issuer">Coursera</div>
-          <span class="cert-year">2025</span>
-        </div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-icon">🐍</div>
-        <div>
-          <div class="cert-name">Python Programming with AI</div>
-          <div class="cert-issuer">DeepLearning.AI</div>
-          <span class="cert-year">2025</span>
-        </div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-icon">🤖</div>
-        <div>
-          <div class="cert-name">AI For Everyone</div>
-          <div class="cert-issuer">Coursera</div>
-          <span class="cert-year">2025</span>
-        </div>
-      </div>
-      <div class="cert-card">
-        <div class="cert-icon">⚙️</div>
-        <div>
-          <div class="cert-name">n8n Automation Workflow</div>
-          <div class="cert-issuer">n8n Official</div>
-          <span class="cert-year">2024</span>
-        </div>
+<section id="certifications">
+<div class="container">
+  <div class="section-eyebrow">Credentials</div>
+  <h2 class="section-title">Certifications</h2>
+  <p class="section-sub">Completed during a focused period of self-development in AI and automation.</p>
+  <div class="certs-grid">
+    <div class="cert-card">
+      <div class="cert-icon">🎓</div>
+      <div>
+        <div class="cert-name">Prompt Engineering</div>
+        <div class="cert-issuer">Coursera</div>
+        <span class="cert-year">2025</span>
       </div>
     </div>
-    <div style="margin-top:40px; background: var(--card-bg); border:1px solid var(--border); border-radius:20px; padding:28px; display:flex; align-items:center; gap:20px;">
-      <div style="font-size:1.5rem;">🎓</div>
+    <div class="cert-card">
+      <div class="cert-icon">🐍</div>
       <div>
-        <div style="font-size:0.88rem; font-weight:500; color:var(--charcoal); margin-bottom:4px;">B.E. Mechatronics Engineering</div>
-        <div style="font-size:0.82rem; color:var(--muted);">SNS College of Technology, Coimbatore &nbsp;·&nbsp; 2017</div>
+        <div class="cert-name">Python Programming with AI</div>
+        <div class="cert-issuer">DeepLearning.AI</div>
+        <span class="cert-year">2025</span>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">🤖</div>
+      <div>
+        <div class="cert-name">AI For Everyone</div>
+        <div class="cert-issuer">Coursera</div>
+        <span class="cert-year">2025</span>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">⚙️</div>
+      <div>
+        <div class="cert-name">n8n Automation Workflow</div>
+        <div class="cert-issuer">n8n Official</div>
+        <span class="cert-year">2024</span>
       </div>
     </div>
   </div>
+  <div class="edu-bar">
+    <div class="edu-icon">🎓</div>
+    <div>
+      <div class="edu-name">B.E. Mechatronics Engineering</div>
+      <div class="edu-detail">SNS College of Technology, Coimbatore · 2017</div>
+    </div>
+  </div>
+</div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="contact-section">
-  <div class="container">
-    <div class="section-label">Get in touch</div>
-    <h2 class="section-title">Let's work together</h2>
-    <p class="section-desc">Open to AI Business Analyst and AI Consultant roles. Based in Chennai — open to remote and hybrid opportunities.</p>
-    <div class="contact-grid">
-      <a href="mailto:kailash714@gmail.com" class="contact-item">
-        <div class="contact-icon">✉️</div>
-        <div>
-          <div class="contact-label">Email</div>
-          <div class="contact-value">kailash714@gmail.com</div>
-        </div>
-      </a>
-      <a href="tel:+919677331113" class="contact-item">
-        <div class="contact-icon">📞</div>
-        <div>
-          <div class="contact-label">Phone</div>
-          <div class="contact-value">+91 96773 31113</div>
-        </div>
-      </a>
-      <a href="#" class="contact-item">
-        <div class="contact-icon">💼</div>
-        <div>
-          <div class="contact-label">LinkedIn</div>
-          <div class="contact-value">Add your LinkedIn URL</div>
-        </div>
-      </a>
-      <a href="#" class="contact-item">
-        <div class="contact-icon">📍</div>
-        <div>
-          <div class="contact-label">Location</div>
-          <div class="contact-value">Chennai, Tamil Nadu, India</div>
-        </div>
-      </a>
-    </div>
+<section id="contact" class="contact-bg">
+<div class="container">
+  <div class="section-eyebrow" style="color:#6699FF;">Get in touch</div>
+  <h2 class="section-title">Let's work together</h2>
+  <p class="section-sub">Open to AI Business Analyst and AI Consultant roles. Based in Chennai — open to remote and hybrid opportunities.</p>
+  <div class="contact-grid">
+    <a href="mailto:kailash714@gmail.com" class="contact-card">
+      <div class="contact-icon">✉️</div>
+      <div><div class="contact-label">Email</div><div class="contact-val">kailash714@gmail.com</div></div>
+    </a>
+    <a href="tel:+919677331113" class="contact-card">
+      <div class="contact-icon">📞</div>
+      <div><div class="contact-label">Phone</div><div class="contact-val">+91 96773 31113</div></div>
+    </a>
+    <a href="#" class="contact-card">
+      <div class="contact-icon">💼</div>
+      <div><div class="contact-label">LinkedIn</div><div class="contact-val">Add your LinkedIn URL here</div></div>
+    </a>
+    <a href="#" class="contact-card">
+      <div class="contact-icon">📍</div>
+      <div><div class="contact-label">Location</div><div class="contact-val">Chennai, Tamil Nadu, India</div></div>
+    </a>
   </div>
+</div>
 </section>
 
 <footer>
-  <p>© 2025 Kiruthigasudan R. &nbsp;·&nbsp; AI Business Analyst &nbsp;·&nbsp; Chennai, India</p>
+  <p>© 2025 Kiruthigasudan R. <span class="footer-dot">·</span> AI Business Analyst <span class="footer-dot">·</span> Chennai</p>
+  <p>Built to impress <span class="footer-dot">·</span> sudankdr-code.github.io/Kiruthigasudan.com</p>
 </footer>
 
 </body>
