@@ -31,13 +31,12 @@
   --sans: 'DM Sans', sans-serif;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 17px; }
+html { scroll-behavior: smooth; font-size: 17px; overflow-x: hidden; }
 body {
   font-family: var(--sans);
   background: var(--ink);
   color: var(--white);
   line-height: 1.65;
-  overflow-x: hidden;
   cursor: none;
   -webkit-font-smoothing: antialiased;
 }
@@ -122,15 +121,15 @@ nav.scrolled {
 
 /* ── HERO ── */
 .hero {
-  min-height: 100vh; display: flex; align-items: center;
-  padding: 120px 64px 80px; position: relative; overflow: hidden;
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  padding: 120px 64px 80px; position: relative;
 }
 canvas#particles {
-  position: absolute; inset: 0; z-index: 0; opacity: 0.5;
+  position: fixed; inset: 0; z-index: 0; opacity: 0.5; pointer-events: none;
 }
 .hero-grid {
   max-width: 1280px; margin: 0 auto; width: 100%;
-  display: grid; grid-template-columns: 1fr 440px; gap: 80px;
+  display: grid; grid-template-columns: minmax(0, 1fr) 420px; gap: 60px;
   align-items: center; position: relative; z-index: 1;
 }
 .hero-eyebrow {
@@ -153,10 +152,11 @@ canvas#particles {
 @keyframes pulseRing { 0%{transform:scale(0.6);opacity:0.6} 100%{transform:scale(2);opacity:0} }
 
 .hero-name {
-  font-family: var(--serif); font-weight: 900; line-height: 0.88;
+  font-family: var(--serif); font-weight: 900; line-height: 0.9;
   letter-spacing: -0.03em; margin-bottom: 32px;
-  font-size: clamp(4.5rem, 9vw, 8.5rem);
+  font-size: clamp(3.5rem, 6vw, 6.5rem);
   opacity: 0; animation: fadeUp 0.9s ease forwards 0.35s;
+  word-break: break-word;
 }
 .hero-name .line1 { display: block; color: var(--white); }
 .hero-name .line2 { display: block; color: transparent;
@@ -210,18 +210,18 @@ canvas#particles {
   border-radius: 28px; overflow: hidden;
   box-shadow: 0 40px 120px rgba(0,0,0,0.5), 0 0 0 0 var(--gold-glow);
   opacity: 0; animation: fadeUp 1s ease forwards 0.6s;
-  position: relative;
+  position: relative; width: 100%; min-width: 0;
 }
 .hero-card::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
   background: linear-gradient(90deg, transparent, var(--gold), transparent);
 }
 .card-header {
-  padding: 28px 32px 0;
+  padding: 24px 28px 0;
   display: flex; align-items: center; justify-content: space-between;
 }
 .card-label {
-  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em;
+  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em;
   text-transform: uppercase; color: var(--white40);
 }
 .card-dot-group { display: flex; gap: 6px; }
@@ -230,21 +230,21 @@ canvas#particles {
 .card-dot:nth-child(2) { background: #FFBD2E; }
 .card-dot:nth-child(3) { background: #28C840; }
 
-.stat-grid { padding: 24px 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
+.stat-grid { padding: 20px 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); }
 .stat-cell {
-  background: var(--surface); padding: 28px 24px;
+  background: var(--surface); padding: 24px 20px;
   transition: background 0.3s;
 }
 .stat-cell:hover { background: var(--surface2); }
 .stat-val {
-  font-family: var(--serif); font-size: 2.6rem; font-weight: 900;
+  font-family: var(--serif); font-size: 2.4rem; font-weight: 900;
   color: var(--gold); letter-spacing: -0.03em; line-height: 1;
   margin-bottom: 8px; display: block;
 }
-.stat-desc { font-size: 0.82rem; color: var(--white40); line-height: 1.5; font-weight: 300; }
+.stat-desc { font-size: 0.8rem; color: var(--white40); line-height: 1.5; font-weight: 300; }
 
 .card-footer {
-  padding: 20px 32px 28px;
+  padding: 18px 28px 24px;
   border-top: 1px solid var(--border);
 }
 .avail-bar {
@@ -263,6 +263,8 @@ canvas#particles {
   text-transform: uppercase; padding: 6px 14px; border-radius: 100px;
   background: rgba(46,204,113,0.1); border: 1px solid rgba(46,204,113,0.25); color: var(--green);
 }
+
+.hero-left { min-width: 0; overflow: hidden; }
 
 /* ── SCROLL INDICATOR ── */
 .scroll-ind {
@@ -619,6 +621,10 @@ footer {
   .project-contrib { border-right: none; border-bottom: 1px solid var(--border); }
   .skills-grid { grid-template-columns: 1fr 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
+}
+@media(min-width:1101px) and (max-width:1380px) {
+  .hero { padding: 120px 40px 80px; }
+  .hero-grid { grid-template-columns: minmax(0,1fr) 380px; gap: 40px; }
 }
 @media(max-width:768px) {
   html { font-size: 16px; }
